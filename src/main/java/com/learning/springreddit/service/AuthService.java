@@ -1,5 +1,7 @@
 package com.learning.springreddit.service;
 
+import com.learning.springreddit.dto.AuthenticationResponse;
+import com.learning.springreddit.dto.LoginRequest;
 import com.learning.springreddit.dto.RegisterRequest;
 import com.learning.springreddit.exception.SpringRedditException;
 import com.learning.springreddit.model.NotificationEmail;
@@ -7,8 +9,13 @@ import com.learning.springreddit.model.User;
 import com.learning.springreddit.model.VerificationToken;
 import com.learning.springreddit.respository.UserRepository;
 import com.learning.springreddit.respository.VerificationTokenRepository;
+import com.learning.springreddit.security.JwtProvider;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -24,6 +31,8 @@ public class AuthService {
     private final UserRepository userRepository;
     private final VerificationTokenRepository verificationTokenRepository;
     private final MailService mailService;
+    private final AuthenticationManager authenticationManager;
+    private final JwtProvider jwtProvider;
 
 
     @Transactional
@@ -69,5 +78,12 @@ public class AuthService {
         userRepository.save(user);
     }
 
+    public AuthenticationResponse login(LoginRequest loginRequest) {
+        Authentication authenticate = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword()));
 
+        SecurityContextHolder.getContext().setAuthentication(authenticate);
+        String token = jwtProvider.generateToken(authenticate);
+        return new AuthenticationResponse(token, loginRequest.getUsername());
+
+    }
 }
