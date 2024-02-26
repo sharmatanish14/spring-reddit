@@ -26,7 +26,7 @@ public class JwtProvider {
 
     }
 
-    private String generateTokenWithUsername(String username) {
+    public String generateTokenWithUsername(String username) {
         JwtClaimsSet jwtClaimsSet = JwtClaimsSet.builder()
                 .issuer("self")
                 .issuedAt(Instant.now())
@@ -37,5 +37,9 @@ public class JwtProvider {
 
         return jwtEncoder.encode(JwtEncoderParameters.from(jwtClaimsSet)).getTokenValue();
 
+    }
+
+    public Long getJwtExpirationTime() {
+        return jwtExpirationTime;
     }
 }
