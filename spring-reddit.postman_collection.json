@@ -1,0 +1,409 @@
+{
+	"info": {
+		"_postman_id": "ac434d11-1478-40b8-819b-a1fd9d013499",
+		"name": "spring-reddit",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "user signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\" : \"test123\",\r\n    \"password\" : \"password\",\r\n    \"email\" : \"test@email.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/auth/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"auth",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"test123\",\r\n    \"password\" : \"password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/auth/login",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				},
+				"description": "login user"
+			},
+			"response": []
+		},
+		{
+			"name": "create subreddit",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzZWxmIiwic3ViIjoidGVzdDEyMyIsImV4cCI6MTcwODk2ODE5OSwiaWF0IjoxNzA4OTY3Mjk5LCJzY29wZSI6IlJPTEVfVVNFUiJ9.oC29csMzoaYA1bG8OLGhok4FUVlmTdhH-tFEQrYAqNK7xAlVqd5aUKSswbzCRZFdyQqWCR7S58raKhIwUOUex0o8Wu687Jav2Ft8cslmBp7wdgCKSvdmyBgD5tVqwfIvjCZ4YjGbuuvUK1fJ2_q8NMuH9NNhMFGTHXm7Y46yHW5ZiuDRqnbyScODsRIsRa9FWcpFYWN0FZJJwunmViIczt5Ffb9PX3AJEBdbkcFUqmKTBCwpHn6sIoKC27YZBEVJnpiOq9t3WjeRt2srhf70285CeSzLCUtqi58YoT9pphXaWFTNXh5mcbpfwWUHRY6Z2jkT15R7vzMgNPvGs0iyPQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"my subreddit\",\r\n    \"description\" : \"This is first subreddit\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/subreddit",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"subreddit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all subreddit",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzZWxmIiwic3ViIjoidGVzdCIsImV4cCI6MTcwODg3MDA2NywiaWF0IjoxNzA4ODY5MTY3LCJzY29wZSI6IlJPTEVfVVNFUiJ9.a0Gpm9-zn8LlJjSMtkMFA87hJwmxWxVsNqWB52DYVRHnNSqiZnE42kVk3t7K9c46tQWJI7wwwZ97tHRLLm5MvGs_TEGDp10gpuGQwNz4w72hiHKT_xQm46BIivqww_XYGL3HcBkubd0yS6COCWWs-celPEAxV3JnFHT9gzamRXX6OWKJHRWmGkFjQ_Nrvneo_fMI3yGGlP0NWd8GTgil_V4z4Z-zQhmuvE7dW4gN_auGkO1C2MijFFbF2dC2E-fpxPStrujSQZzwHFL98PxKxW-v6WrB9LhrcOvoOcG6m5-65p4HlSNE_rCh5BX3NRrzsXyFpSfOsOFhRIKRZejqWA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/subreddit",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"subreddit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get single subreddit",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzZWxmIiwic3ViIjoidGVzdCIsImV4cCI6MTcwODg3MDA2NywiaWF0IjoxNzA4ODY5MTY3LCJzY29wZSI6IlJPTEVfVVNFUiJ9.a0Gpm9-zn8LlJjSMtkMFA87hJwmxWxVsNqWB52DYVRHnNSqiZnE42kVk3t7K9c46tQWJI7wwwZ97tHRLLm5MvGs_TEGDp10gpuGQwNz4w72hiHKT_xQm46BIivqww_XYGL3HcBkubd0yS6COCWWs-celPEAxV3JnFHT9gzamRXX6OWKJHRWmGkFjQ_Nrvneo_fMI3yGGlP0NWd8GTgil_V4z4Z-zQhmuvE7dW4gN_auGkO1C2MijFFbF2dC2E-fpxPStrujSQZzwHFL98PxKxW-v6WrB9LhrcOvoOcG6m5-65p4HlSNE_rCh5BX3NRrzsXyFpSfOsOFhRIKRZejqWA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/subreddit/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"subreddit",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create post",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzZWxmIiwic3ViIjoidGVzdDEyMyIsImV4cCI6MTcwODk2ODE5OSwiaWF0IjoxNzA4OTY3Mjk5LCJzY29wZSI6IlJPTEVfVVNFUiJ9.oC29csMzoaYA1bG8OLGhok4FUVlmTdhH-tFEQrYAqNK7xAlVqd5aUKSswbzCRZFdyQqWCR7S58raKhIwUOUex0o8Wu687Jav2Ft8cslmBp7wdgCKSvdmyBgD5tVqwfIvjCZ4YjGbuuvUK1fJ2_q8NMuH9NNhMFGTHXm7Y46yHW5ZiuDRqnbyScODsRIsRa9FWcpFYWN0FZJJwunmViIczt5Ffb9PX3AJEBdbkcFUqmKTBCwpHn6sIoKC27YZBEVJnpiOq9t3WjeRt2srhf70285CeSzLCUtqi58YoT9pphXaWFTNXh5mcbpfwWUHRY6Z2jkT15R7vzMgNPvGs0iyPQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"subredditName\" : \"my subreddit\",\r\n    \"postname\": \"first post\",\r\n    \"url\" : \"https://sampleurl.com\",\r\n    \"description\": \"sample description\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/posts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get post",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzZWxmIiwic3ViIjoidGVzdCIsImV4cCI6MTcwODg4NDIxOCwiaWF0IjoxNzA4ODgzMzE4LCJzY29wZSI6IlJPTEVfVVNFUiJ9.1Ej52IdGRxa2RzValdqPre5O-1PonN8qcQySNQFqVXz0tLG2lag4UVSoobOgEXusFggtAq6ETaOgAa_ka9ezHDLoMxrLXtwwtV_qBKjtmFNtKzvu7wy5TyPZL0yAxyHQftegeiFR2timoet33zfeVK_MlrEWZoDxgV0qBQs4p4VsWMXC_12Law6sNHkUd8Uf4yHb80w7hW0eNHvWlOd-l3qJN1Jsq6IWjWOLD1i4hFmnNidZD9vmbtaJbRmbqQqPXh883zZQ_HQD9GS7Ph3wzT-R-2GLYKDIxMbVx8peHjgPWIGgHQhMR2Fi6QPEsHLaNltxjGYI-ZqgUkeWMtKQfw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/posts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create comment",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzZWxmIiwic3ViIjoidGVzdDEyMyIsImV4cCI6MTcwODk2ODE5OSwiaWF0IjoxNzA4OTY3Mjk5LCJzY29wZSI6IlJPTEVfVVNFUiJ9.oC29csMzoaYA1bG8OLGhok4FUVlmTdhH-tFEQrYAqNK7xAlVqd5aUKSswbzCRZFdyQqWCR7S58raKhIwUOUex0o8Wu687Jav2Ft8cslmBp7wdgCKSvdmyBgD5tVqwfIvjCZ4YjGbuuvUK1fJ2_q8NMuH9NNhMFGTHXm7Y46yHW5ZiuDRqnbyScODsRIsRa9FWcpFYWN0FZJJwunmViIczt5Ffb9PX3AJEBdbkcFUqmKTBCwpHn6sIoKC27YZBEVJnpiOq9t3WjeRt2srhf70285CeSzLCUtqi58YoT9pphXaWFTNXh5mcbpfwWUHRY6Z2jkT15R7vzMgNPvGs0iyPQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"postId\": 3,\r\n    \"text\": \"sample text comment 2\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/comments",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"comments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getComments",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzZWxmIiwic3ViIjoidGVzdDEyMyIsImV4cCI6MTcwODk2ODE5OSwiaWF0IjoxNzA4OTY3Mjk5LCJzY29wZSI6IlJPTEVfVVNFUiJ9.oC29csMzoaYA1bG8OLGhok4FUVlmTdhH-tFEQrYAqNK7xAlVqd5aUKSswbzCRZFdyQqWCR7S58raKhIwUOUex0o8Wu687Jav2Ft8cslmBp7wdgCKSvdmyBgD5tVqwfIvjCZ4YjGbuuvUK1fJ2_q8NMuH9NNhMFGTHXm7Y46yHW5ZiuDRqnbyScODsRIsRa9FWcpFYWN0FZJJwunmViIczt5Ffb9PX3AJEBdbkcFUqmKTBCwpHn6sIoKC27YZBEVJnpiOq9t3WjeRt2srhf70285CeSzLCUtqi58YoT9pphXaWFTNXh5mcbpfwWUHRY6Z2jkT15R7vzMgNPvGs0iyPQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/comments/by-user/test123",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"comments",
+						"by-user",
+						"test123"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add vote",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzZWxmIiwic3ViIjoidGVzdDEyMyIsImV4cCI6MTcwODk2ODE5OSwiaWF0IjoxNzA4OTY3Mjk5LCJzY29wZSI6IlJPTEVfVVNFUiJ9.oC29csMzoaYA1bG8OLGhok4FUVlmTdhH-tFEQrYAqNK7xAlVqd5aUKSswbzCRZFdyQqWCR7S58raKhIwUOUex0o8Wu687Jav2Ft8cslmBp7wdgCKSvdmyBgD5tVqwfIvjCZ4YjGbuuvUK1fJ2_q8NMuH9NNhMFGTHXm7Y46yHW5ZiuDRqnbyScODsRIsRa9FWcpFYWN0FZJJwunmViIczt5Ffb9PX3AJEBdbkcFUqmKTBCwpHn6sIoKC27YZBEVJnpiOq9t3WjeRt2srhf70285CeSzLCUtqi58YoT9pphXaWFTNXh5mcbpfwWUHRY6Z2jkT15R7vzMgNPvGs0iyPQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"voteType\": \"UPVOTE\",\r\n    \"postId\": 3\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/votes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"votes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "refresh token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"refreshToken\": \"a95fc896-3251-43be-b9c0-8b4c125f4a9a\",\r\n    \"username\": \"test\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/auth/refresh/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"auth",
+						"refresh",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "logout",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"token\": \"a95fc896-3251-43be-b9c0-8b4c125f4a9a\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/auth/logout",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"auth",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
